@@ -1,5 +1,6 @@
 // using this file is optional
 // you can also load the code snippets in using your browser's console
+
 const main = document.getElementById("main");
 
 main.addEventListener("click",function (event) { 
@@ -8,7 +9,6 @@ main.addEventListener("click",function (event) {
 
 const input = document.querySelector("input");
 input.addEventListener("keydown", function (e) {
-  // console.log(String.fromCharCode(e.which))
   
   if(e.which === 65){
     console.log("default is prevented");
@@ -18,9 +18,8 @@ input.addEventListener("keydown", function (e) {
   }
 })
 
-
-//bubbling test
 let divs = document.querySelectorAll("div");
+
 function bubble(e) {
   e.stopPropagation();
   console.log(this.firstChild.nodeValue.trim() + "bubbled");
@@ -34,6 +33,7 @@ function capture(e) {
   
   console.log(this.firstChild.nodeValue.trim() + "caputred");
 }
+
 for (let i = 0 ; i < divs.length; i++) {
   divs[i].addEventListener("click",capture,true);
 }
